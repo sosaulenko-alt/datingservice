@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Іскра ❤️ — сучасний сервіс знайомств</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">
+      <span class="logo-spark">✦</span>
+      <span class="logo-text">Іскра</span>
+    </div>
+    <nav class="header-nav" id="header-nav">
+
+    </nav>
+  </div>
+</header>
+
+<section id="screen-landing" class="screen">
+  <div class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">01 — знайомство починається тут</p>
+      <h1 class="hero-title">Не свайп заради<br><em>свайпу.</em><br>Іскра — заради розмови.</h1>
+      <p class="hero-sub">Коротка анкета, чесний відсоток сумісності й жодних ботів. Ми показуємо не картинку, а причину написати перше повідомлення.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" data-goto="auth-register">Створити анкету</button>
+        <button class="btn btn-ghost" data-goto="auth-login">Увійти</button>
+      </div>
+      <p class="hero-note">Демо-версія: дані зберігаються в пам'яті сторінки. Дивись <code>README.md</code> — як під'єднати справжню базу даних.</p>
+    </div>
+
+    <div class="hero-demo" aria-hidden="true">
+      <div class="demo-card" id="demo-card">
+        <div class="demo-avatar" style="--c1:#FF6F5E;--c2:#F2C14E">М</div>
+        <div class="demo-name">Марта, 27</div>
+        <div class="demo-tag">Кава, довгі прогулянки, погані каламбури</div>
+        <div class="spark-meter">
+          <div class="spark-meter-fill" style="width:82%"></div>
+        </div>
+        <div class="spark-label">✦ 82% іскри</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="how-it-works">
+    <div class="how-item">
+      <span class="how-num">01</span>
+      <h3>Заповни анкету</h3>
+      <p>Ім'я, вік, три речі, які тебе описують — і трохи гумору не завадить.</p>
+    </div>
+    <div class="how-item">
+      <span class="how-num">02</span>
+      <h3>Дивись на іскру</h3>
+      <p>Кожній анкеті — свій відсоток сумісності. Не вгадуй, а бач.</p>
+    </div>
+    <div class="how-item">
+      <span class="how-num">03</span>
+      <h3>Пиши першим</h3>
+      <p>Взаємний лайк відкриває чат. Без зайвих кроків.</p>
+    </div>
+  </div>
+</section>
+
+<section id="screen-auth-register" class="screen hidden">
+  <div class="auth-box">
+    <p class="eyebrow">02 — твоя анкета</p>
+    <h2>Створити анкету</h2>
+    <form id="form-register" novalidate>
+      <label>Ім'я
+        <input type="text" name="name" required placeholder="Наприклад, Олена">
+      </label>
+      <label>Вік
+        <input type="number" name="age" min="18" max="99" required placeholder="27">
+      </label>
+      <label>Email
+        <input type="email" name="email" required placeholder="you@example.com">
+      </label>
+      <label>Пароль
+        <input type="password" name="password" required minlength="4" placeholder="мінімум 4 символи">
+      </label>
+      <label>Про себе (кілька слів)
+        <input type="text" name="bio" required placeholder="Кава, походи, погані каламбури">
+      </label>
+      <p class="form-error" id="register-error"></p>
+      <button type="submit" class="btn btn-primary btn-block">Створити анкету</button>
+    </form>
+    <p class="auth-switch">Вже маєш анкету? <a href="#" data-goto="auth-login">Увійти</a></p>
+  </div>
+</section>
+
+<section id="screen-auth-login" class="screen hidden">
+  <div class="auth-box">
+    <p class="eyebrow">02 — з поверненням</p>
+    <h2>Увійти</h2>
+    <form id="form-login" novalidate>
+      <label>Email
+        <input type="email" name="email" required placeholder="you@example.com">
+      </label>
+      <label>Пароль
+        <input type="password" name="password" required placeholder="••••••••">
+      </label>
+      <p class="form-error" id="login-error"></p>
+      <button type="submit" class="btn btn-primary btn-block">Увійти</button>
+    </form>
+    <p class="auth-switch">Ще немає анкети? <a href="#" data-goto="auth-register">Створити</a></p>
+    <p class="auth-hint">Демо-акаунт: <code>marta@example.com</code> / <code>1234</code></p>
+  </div>
+</section>
+
+<section id="screen-app" class="screen hidden">
+  <div class="app-shell">
+    <aside class="app-tabs">
+      <button class="tab-btn active" data-tab="browse">✦ Стрічка</button>
+      <button class="tab-btn" data-tab="matches">♥ Метчі <span class="tab-badge" id="matches-count">0</span></button>
+      <button class="tab-btn" data-tab="chat">✉ Чат</button>
+    </aside>
+
+    <div class="app-content">
+
+      <div class="tab-panel active" id="panel-browse">
+        <div class="panel-head">
+          <h2>Стрічка анкет</h2>
+          <p>Свайпни картку вправо — лайк, вліво — пропустити. Або натисни кнопки нижче.</p>
+        </div>
+        <div class="swipe-stage" id="swipe-stage">
+        </div>
+        <div class="swipe-controls">
+          <button class="btn-round btn-pass" id="btn-pass" title="Пропустити">✕</button>
+          <button class="btn-round btn-like" id="btn-like" title="Лайк">✦</button>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="panel-matches">
+        <div class="panel-head">
+          <h2>Твої метчі</h2>
+          <p>Взаємна симпатія — можна писати.</p>
+        </div>
+        <div class="matches-list" id="matches-list"></div>
+      </div>
+
+      <div class="tab-panel" id="panel-chat">
+        <div class="panel-head">
+          <h2>Чат</h2>
+          <p id="chat-with-label">Обери метч зі списку, щоб почати розмову.</p>
+        </div>
+        <div class="chat-window" id="chat-window">
+          <div class="chat-empty" id="chat-empty">Немає обраної розмови ✦</div>
+          <div class="chat-messages" id="chat-messages"></div>
+        </div>
+        <form class="chat-input-row" id="form-chat" style="display:none">
+          <input type="text" id="chat-input" placeholder="Напиши повідомлення..." autocomplete="off">
+          <button type="submit" class="btn btn-primary">Надіслати</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="js/api.js"></script>
+<script src="js/app.js"></script>
+
+<footer class="site-footer">
+  <p>© 2026 Іскра ❤️ — сучасний сервіс знайомств</p>
+  <p>Made with passion for real connections ✦</p>
+</footer>
+
+</body>
+</html>

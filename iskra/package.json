@@ -1,0 +1,17 @@
+{
+  "name": "iskra",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Іскра — сайт знайомств на HTML/CSS/JS з мок-API, готовим до підключення реальної бази даних",
+  "keywords": ["dating-app", "vanilla-js", "html-css-js", "frontend"],
+  "license": "MIT",
+  "scripts": {
+    "start": "serve src -l 5173",
+    "dev": "serve src -l 5173",
+    "lint:html": "html-validate src/index.html"
+  },
+  "devDependencies": {
+    "serve": "^14.2.1",
+    "html-validate": "^8.18.1"
+  }
+}
